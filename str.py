@@ -112,6 +112,124 @@ for i in dict(Counter(a)).items():
     if i[1] == 1:
         c.append(i[0])
 print(c[1])
-# 列表推导式
 
+# 列表推导式
 print([i[0] for i in dict(Counter(a)).items() if i[1] == 1][1])
+
+"""
+11.
+判断字符串 a="welcome to my world" 是否包含单词 b="world"
+包含返回 True，不包含返回 False
+解题思路：
+"""
+a = "welcome to my world"
+b = "world"
+print(b in a)
+# if b in a:
+#     print(True)
+# else:
+#     print(False)
+# find 查找字符串下标方式
+c = a.find(b)
+if c == -1:
+    print(False)
+else:
+    print(True)
+# 三元表达式
+print(False if a.find(b) == -1 else True)
+# 根据index查找下标
+print(False if a.index(b) == -1 else True)
+
+"""
+12. 查找字符首次出现位置
+输出指定字符串 A 在字符串 B 中第一次出现的位置,如果 B 中不包含 A,则输出-1 从 0 开始计数
+A = "hello"
+B = "hi how are you hello world, hello yoyo !"
+解题思路：find和index内置函数，index函数在查找时，会自动打出a字符在b字符内首次出现的下标
+"""
+a = "hello"
+b = "hi how are you hello world, hello yoyo !"
+# index 方法 弊端：在没有查到时候会报异常
+try:
+    print("index方式查询：", b.index(a))
+except:
+    print(-1)
+# find 方式查找 加起始位置和结束位置
+print("find方式查询：", b.find(a, 1, 20))
+
+"""
+13.查找字符串最后一次出现位置
+输出指定字符串 A 在字符串 B 中最后出现的位置,如果 B 中不包含 A,则输出-1
+从 0 开始计数
+A = "hello"
+B = "hi how are you hello world, hello yoyo !"
+解题思路：使用rfind内置函数，会直接查询出字符最后一次出现的位置，如果没有查到直接返回-1
+"""
+a = "hello"
+b = "hi how are you hello world, hello yoyo !"
+print(b.rfind(a))
+
+"""
+14.判断奇数偶数
+给定一个数 a，判断一个数字是否为奇数戒偶数
+解题思路：使用整除号 % 整除2后等于0的直接打印是个偶数 不整除的则是奇数
+"""
+a = 10
+try:
+    if a % 2 == 0:
+        print("这是个偶数")
+except:
+    print("这是个基数")
+"""
+15.判断一个姓名是否姓王
+输入一个姓名，判断是否姓王
+解题思路：startswith --判断字符串首子字符，startswith()方法诧法：str.startswith(str, beg=0,end=len(string));
+"""
+# a = input("请输入你的姓名:")
+# print(a.startswith('夏'))
+
+"""
+16. 判断是不是纯数字
+如何判断一个字符串是丌是纯数字组成
+解题思路：isdigit() 方法检测字符串是否叧由数字组成。如果字符串叧包含数字则返回 True 否则返
+回 False
+"""
+a = "nihao"
+print(a.isdigit())
+
+"""
+17. 字符串大小写转换
+将字符串 a = "This is string example....wow!" 全部转成大写
+解题思路：title()内置函数，默认给字符串中所有的小写字母转化为大写的
+"""
+a = "This is string example....wow!"
+print("字符串中首个单词字母全部转化为大写", a.title())
+print("字符串中字母全部转化为小写", a.lower())
+print("字符串中每个字母转化为大写", a.upper())
+print("字符串中第一个单词转化为大写:", a.capitalize())
+
+"""
+18.字符串去掉首尾空格
+将字符串 a = " welcome to my world "首尾空格去掉
+解题思路：strip()内置函数chars -- 移除字符串头尾指定的字符序列。
+strip后面可以加指定去除的某一字符
+"""
+a = " welcome to my world "
+b = "welcome to my world!"
+print("去除首尾空字符：", a.strip())
+print("去除字符串中最后的！号：", b.strip("！"))
+"""
+19. 字符串去掉左边指定空格或字符
+将字符串 a = " welcome to my world ！"左边的空格去掉
+解题思路：str.lstrip()内置方法
+"""
+a = " welcome to my world ！"
+print("去除字符串左边的空字符：", a.lstrip())
+
+"""
+20. 字符串去掉右边指定空格或字符
+将字符串 a = " welcome to my world ! "右边的空格去掉
+解题思路：a.rstrip() --
+"""
+a = " welcome to my world !   "
+print(a.rstrip())
