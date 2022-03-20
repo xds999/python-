@@ -233,3 +233,79 @@ print("去除字符串左边的空字符：", a.lstrip())
 """
 a = " welcome to my world !   "
 print(a.rstrip())
+"""
+21. 去除字符串里面所有的空格
+将字符串 a = " welcome to my world ! "里面的所有空格都去掉
+解题思路：replace()内置函数，replace()方法诧法：str.replace(old, new[, max])
+"""
+a = " welcome to my world ! "
+print(a.replace(" ", "", 2))
+
+"""
+22. 字符串去重后排序
+s = "ajldjlajfdljfddd"，去重幵从小到大排序输出"adfjl"
+解题思路：
+1、先用set()去重，set去重后是一个无序的集合，set会改变原始数据的排序。再用sorted()来进行排序，排序完后需要用到join来进行拼接。
+2、使用for循环，来进行判断，再逐个添加到新列表
+"""
+a = []
+s = "ajldjlajfdljfddd"
+print("".join(set(s))) # 未进行从小到大排序
+print("".join(sorted(set(s))))
+for i in s:
+    if i not in a:
+        a.append(i)
+print("".join(sorted(a)))
+"""
+23.字符串去重保留顺序
+s = "ajldjlajfdljfddd"，去重保留原来的顸序，输出"adfjl"
+解题思路：sorted()内置函数，sorted函数不会改变数据本身的顺序
+"""
+s = "ajldjlajfdljfddd"
+print("".join(sorted(s)))
+
+"""
+24.
+打印菱形图案
+题目 打印出如下图案（菱形）:
+   *
+  * *
+ * * *
+* * * *
+ * * *
+  * *
+   *   
+"""
+#  最大行数
+lines = 7
+lines2 = (lines+1) // 2
+start = ([2*i+1 for i in range(lines2)] + [2*i-1 for i in range(lines2-1, 0, -1)])
+for i in start:
+    #  求出空格数据
+    kong = (lines - i) // 2
+    print(" " * kong, "*" * i)
+
+"""
+25.输入一个正整数，判断是几位数
+题目 给一个不多于 5 位的正整数，要求
+一、求它是几位数，
+二、逆序打印出各位数字。
+解题思路：整数为int，len()函数不能判断整数的长度，所以先转为str类型，再用len函数来统计
+逆序打印也是一样，字符串中的切片 [::-1] --字符串逆序排
+"""
+a = 12345
+print(len(str(a)))
+print(str(a)[::-1])
+
+"""
+26.判断字符相关
+1. isupper() 方法检测字符串中所有的字母是否都为大写。叧判断 a-z 的英文字符是丌是
+全部大写 A-Z
+解题思路:isupper()内置函数，用来判断字符串中字母是否全部为大写，如果全部为大写则返回True，如果不是全部为大写则返回False
+"""
+a = "hello world"
+b = "HELLO"
+# False
+print(a.isupper())
+# True
+print(b.isupper())
