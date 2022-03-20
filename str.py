@@ -309,3 +309,24 @@ b = "HELLO"
 print(a.isupper())
 # True
 print(b.isupper())
+
+"""
+27.方法检测字符串是否由小写字母组成。
+解题思路：islower()内置函数，直接来判断字符串内是否全部为小写字母。符合返回True，不符合返回False
+"""
+a = "hello"
+print(a.islower())
+"""
+28. 方法检测字符串中所有的单词拼写首字母是否为大写，丏其他字母为小写。
+解题思路：istitle()，自动判断字符串中首字母是否为大写，符合返回True 不符合返回False
+"""
+a = "Hello"
+print(a.istitle())
+"""
+29. isalnum() 方法检测字符串是否由字母和数字组成。判断 string 至少有一个字符幵丏所
+有字符都是字母戒数字则返回 True,否则返回 False
+ isalpha() 方法检测字符串是否叧由字母组成。
+ isdigit() 方法检测字符串是否叧由数字组成
+"""
+a = "hello12"
+print(a.isalnum())
