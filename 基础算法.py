@@ -10,4 +10,10 @@ for i in range(100, 1000):
     if i == sum([int(j)**3 for j in str(i)]):
         print(i)
 
-
+"""
+2、100以内的累加和
+"""
+a = 0
+for i in range(101):
+    a += i
+print(a)
