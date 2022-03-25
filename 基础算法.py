@@ -6,10 +6,9 @@
 解题思路：先遍历出100-1000内的3位数数字
         再转字符串，再求和
 """
-for i in range(100, 101):
+for i in range(100, 1001):
     if i == sum([int(j)**3 for j in str(i)]):
         print(i)
-
 """
 2、100以内的累加和
 """
@@ -74,3 +73,92 @@ for i in range(1, 101):
     else:
         a -= i
 print(a)
+"""
+7.计算 1-n 之间的所有 5 的倍数之和
+定义一个函数：计算 1-n 之间的所有 5 的倍数之和，默认计算 1-100 （ n 是 一个整数)
+解题思路：for循环从1-100， 如果能整除5的数字，添加到一个新的列表当中，再用sun求和
+"""
+a = 5
+s = []
+for i in range(1, 101):
+    if i % 5 == 0:
+        s.append(i)
+print(sum(s))
+# 列表推导式，快速生成一个列表，当i能整除5的时候，输出i再使用sum函数求和
+print(sum([i for i in range(1, 101) if i % 5 == 0]))
+
+
+def case_1(n):
+    response = sum([i for i in range(1, n)if i % 5 == 0])
+    return response
+
+
+result = case_1(101)
+print("封装函数后的输出：{}".format(result))
+
+
+"""
+8. n 个自然数的立方和
+计算公式 1**3 + 2**3 + 3**3 + 4**3 + …….+ n**3
+实现要求：
+输入 : n = 5
+输出 : 225
+对应的公式 : 1**3 + 2**3 + 3**3 + 4**3 + 5**3 = 225
+解题思路：列表推导式 / 给一个变量赋个空值，然后累加i**3
+pow函数，pow(数据源, 乘以几次方)
+"""
+b = 1
+c = 5
+s = 0
+while b <= c:
+    s += b ** 3
+    b += 1
+print("while循环求出：{}".format(s))
+d = 0
+for i in range(1, 6):
+    d += i**3
+print("for循环求出：", d)
+# 列表推导式，循环遍历，生成一个快速的可迭代的list，再返回三次方的i， 再用sum进行求和
+print("列表推导式求出：", sum([int(i) ** 3for i in range(1, 6)]))
+print("列表推导式求出：", sum([i**3 for i in range(1, 6)]))
+print("pow函数解决：", sum([pow(i, 3) for i in range(1, 6)]))
+# n = input("请输入一个整数：")
+# print("pow函数求出：", sum([pow(i, 3)for i in range(1, int(n)+1)]))
+
+"""
+9.求出10的阶乘
+阶乘的意思: 10!=10x9x8x7x6x5x4x3x2x1
+"""
+a = 1
+s = 1
+d = 1
+while a <= 10:
+    s *= a
+    a += 1
+print(s)
+for i in range(1, 11):
+    d *= i
+print(d)
+print(sum([i*j for i in range(1, 11) for j in range(1, 11)]))
+"""
+10. 求 1+2!+3!+...+10!的和
+跟上面一题思路差不多，多一个累加求和
+"""
+a = 1
+s = 0
+# for循环
+for i in range(1, 11):
+    # 求出10到1的阶乘
+    a *= i
+    # 再累加每个数的阶乘
+    s += a
+print(s)
+# while循环
+b = 1
+f = 1
+d = 0
+while b < 11:
+    f *= b
+    d += f
+    b += 1
+print(d)
