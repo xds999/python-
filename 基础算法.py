@@ -162,3 +162,38 @@ while b < 11:
     d += f
     b += 1
 print(d)
+
+"""
+11.求 s=a+aa+aaa+aaaa+aa...a 的值
+如 n = 5  a = 3
+解题思路：
+"""
+a = 0
+s = 0
+for i in range(5):
+    a += 3*10**i
+    s += a
+print(s)
+
+print(sum([int('3' * i)for i in range(1, 6)]))
+
+"""
+12.斐波那契数列
+已知一个数列：1、1、2、3、5、8、13、。。。。的规律为从 3 开始的每一项都等于其前两
+项的和，这是斐波那契数列。
+求满足规律的 100 以内的所有数据
+"""
+num = 100
+a = 0
+b = 1
+n = 1
+while n <= 100:
+    n = a+b
+    a, b = b, n
+    if n >= 100:
+        break
+    else:
+        print(n, end=" ")
+
+
+
