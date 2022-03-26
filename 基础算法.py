@@ -73,6 +73,8 @@ for i in range(1, 101):
     else:
         a -= i
 print(a)
+# 列表推导式
+print(sum([i if i % 2 == 0 or i == 1 else -1*i for i in range(1, 101)]))
 """
 7.计算 1-n 之间的所有 5 的倍数之和
 定义一个函数：计算 1-n 之间的所有 5 的倍数之和，默认计算 1-100 （ n 是 一个整数)
