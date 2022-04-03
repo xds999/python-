@@ -164,6 +164,19 @@ while b < 11:
     d += f
     b += 1
 print(d)
+"""
+使用递归来求出10的阶乘和
+"""
+
+
+def function(n):
+    if n == 1:
+        return 1
+    else:
+        a = 0
+        n *= function(n-1)
+        a += n
+        return a
 
 """
 11.求 s=a+aa+aaa+aaaa+aa...a 的值
@@ -196,6 +209,13 @@ while n <= 100:
         break
     else:
         print(n, end=" ")
+print()
 
-
+"""for循环处理"""
+a = 0
+b = 1
+for i in range(1, 101):
+    if i == a+b:
+        a, b = b, i
+        print(i, end=" ")
 
